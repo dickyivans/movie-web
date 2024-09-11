@@ -1,0 +1,244 @@
+span {
+  color: #6ac143;
+}
+
+.Movie-container {
+  width: 50%;
+  display: flex;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 0 auto; /* Ensures centering if using width */
+}
+
+.Movie-wrapper {
+  position: relative;
+  width: 200px;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.Movie-search {
+  height: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+  padding: 16px;
+  font-weight: 300;
+  border-radius: 24px; /* This makes the input rounded */
+  border: 2px solid #ccc; /* Optional: to add a border around the input */
+  transition: border-color 0.3s ease;
+}
+
+.Movie-search:focus {
+  border-color: #6ac143; /* Change border color to green when focused */
+  outline: none; /* Remove default outline */
+}
+
+.Movie-title {
+  font-weight: bold;
+  text-align: start;
+  width: 100%; /* Ensure the title fits the container */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ... when the text overflows */
+  white-space: nowrap;
+}
+
+.Movie-date {
+  text-align: start;
+}
+
+.Movie-image-container {
+  position: relative;
+}
+
+.Movie-image {
+  width: 190px; /* Adjust the width to make the image smaller */
+  height: auto; /* Maintain the aspect ratio */
+  border: 4px solid white; /* Add a white border */
+  border-radius: 8px; /* Optional: add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+  transition: border-color 0.3s ease;
+  z-index: 1; /* Ensure the image is above the overlay */
+}
+
+.Movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 4.2px;
+  margin-left: 4.8px;
+  width: 190px;
+  border-radius: 4px;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  color: white;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 2; /* Ensure the overlay is above the image */
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.Movie-overlay .Movie-rating {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.Movie-overlay .Movie-genres {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.Movie-overlay .Movie-details-button {
+  background-color: #6ac143;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Movie-image-container:hover .Movie-image {
+  border-color: #6ac143; /* Border turns green */
+}
+
+.Movie-image-container:hover .Movie-overlay {
+  /* Border turns green */
+  opacity: 1;
+  visibility: visible;
+}
+
+.Movie-detail-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  text-align: start;
+}
+
+.Movie-detail-content {
+  display: flex;
+  background: #242424;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+}
+
+.Movie-detail-poster {
+  width: 180px;
+  height: 100%;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.Movie-detail-info {
+  max-width: 600px;
+}
+
+.Movie-detail-info h2 {
+  margin-top: 0;
+}
+
+.Movie-detail-info p {
+  margin: 5px 0;
+}
+
+.Movie-detail-info button {
+  background-color: #6ac143;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.Movie-detail-info button:hover {
+  background-color: #5a9c32;
+}
+.Pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.Pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.Pagination button.active {
+  background: #5a9c32;
+  color: #fff;
+}
+
+.Pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.Pagination span {
+  margin: 0 5px;
+}
+
+.Footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1c1b1b;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+  color: #5a9c32;
+}
+
+/* Media query untuk layar kecil */
+@media (max-width: 768px) {
+  /* Mengubah tata letak menjadi kolom pada layar kecil */
+  .Movie-detail-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Poster berada di atas dan detail di bawah */
+  .Movie-detail-poster {
+    width: 180px;
+    height: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Info akan mengikuti poster di bawah */
+  .Movie-detail-info {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  /* Judul dan teks detail dirapikan di tengah */
+  .Movie-detail-info h2 {
+    text-align: center;
+  }
+
+  .Movie-detail-info p {
+    text-align: center;
+  }
+}
