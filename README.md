@@ -48,5 +48,3 @@ export default tseslint.config({
   },
 })
 ```
-# movie-web
-# movie-web
